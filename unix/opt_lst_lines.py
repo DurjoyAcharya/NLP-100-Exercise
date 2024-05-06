@@ -1,8 +1,8 @@
 import sys
 
-def output_first_n_lines(f_name, n):
-    with open(f_name, 'r') as file:
-        lines = file.readlines()[:n]
+def output_last_n_lines(filename, n):
+    with open(filename, 'r') as file:
+        lines = file.readlines()[-n:]
         for line in lines:
             print(line.strip())
 
@@ -11,6 +11,6 @@ if __name__ == "__main__":
         print("Use: python opt_lines.py popular-names <Number of lines>")
         sys.exit(1)
 
-    f_name = sys.argv[1]
+    filename = sys.argv[1]
     n = int(sys.argv[2])
-    output_first_n_lines(f_name, n)
+    output_last_n_lines(filename, n)
